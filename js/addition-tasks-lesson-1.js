@@ -380,17 +380,17 @@ function getBonus(hoursWorked, overtime) {
 console.log(`Task #27: ${getBonus(50, false)}`);
 
 // Task 28
-// "Напишіть функцію, яка приймає два параметри: number та isPositive. Якщо число більше 0 і isPositive дорівнює true, поверніть "Це позитивне число", в іншому випадку поверніть "Це не позитивне число"."
+// "Напишіть функцію, яка приймає два параметри: number. Якщо число більше 0 і isPositive дорівнює true, поверніть "Це позитивне число", в іншому випадку поверніть "Це не позитивне число"."
 
-function getNumberType(number, isPositive) {
-    if ((number > 0 && isPositive) || number > 0) {
+function getNumberType(number) {
+    if (number > 0) {
         return 'Це позитивне число';
     }
 
-    return 'Це негативне число';
+    return 'Це не позитивне число';
 }
 
-console.log(`Task #28: ${getNumberType(-50, false)}`);
+console.log(`Task #28: ${getNumberType(50)}`);
 
 // Task 29
 // "Напишіть функцію, яка приймає два параметри: temperature та isSunny. Якщо температура більше 20 і це сонячний день, поверніть "Час для прогулянки", в іншому випадку поверніть "Залишимося вдома"."
@@ -417,3 +417,439 @@ function getNormalParameters(weight, height) {
 }
 
 console.log(`Task #30: ${getNormalParameters(50, 160)}`);
+
+// Task 31
+// "Напишіть функцію, яка приймає два параметри: year та isLeapYear (булевий). Якщо рік ділиться на 4 і isLeapYear є true, поверніть "Це високосний рік", в іншому випадку поверніть "Звичайний рік"."
+
+function confirmYear(year, isLeapYear) {
+    if (year % 4 === 0 && isLeapYear) {
+        return 'Це високосний рік';
+    }
+
+    return 'Звичайний рік';
+}
+
+console.log(`Task #31: ${confirmYear(2011, true)}`);
+
+// Task 32
+// "Напишіть функцію, яка приймає три параметри: age, isStudent (булевий), і isSeniorCitizen (булевий). Якщо вік менший за 18 або є студентом, або якщо старший за 65 і є пенсіонером, поверніть "Знижка на квиток", в іншому випадку поверніть "Повна вартість квитка"."
+
+function confirmDiscount(age, isStudent, isSeniorCitizen) {
+    if ((age < 18 && isStudent) || (age > 65 && isSeniorCitizen)) {
+        return 'Знижка на квиток';
+    }
+
+    return 'Повна вартість квитка';
+}
+
+console.log(`Task #32: ${confirmDiscount(66, true, true)}`);
+
+// Task 33
+// "Напишіть функцію, яка приймає три параметри: temperature, isRaining, і hasUmbrella (булевий). Якщо температура більше 25 і йде дощ, і у вас є парасоля, поверніть "Візьміть парасолю та одягніться легше", якщо немає парасолі, поверніть "Залишайтеся вдома", в іншому випадку поверніть "Виходьте на прогулянку"."
+
+function confirmWalking(temperature, isRaining, hasUmbrella) {
+    if (temperature > 25 && isRaining && hasUmbrella) {
+        return 'Візьміть парасолю та одягніться легше';
+    } else if (isRaining && !hasUmbrella) {
+        return 'Залишайтеся вдома';
+    } else {
+        return 'Виходьте на прогулянку';
+    }
+}
+
+console.log(`Task #33: ${confirmWalking(15, true, false)}`);
+
+// Task 34
+// "Напишіть функцію, яка приймає три параметри: isMember (булевий), hasCoupon (булевий), і purchaseAmount. Якщо ви є членом клубу або маєте купон, і сума покупки більше 100, поверніть "Отримаєте знижку", в іншому випадку поверніть "Знижка не доступна"."
+
+function confirmShopDiscount(isMember, hasCoupon, purchaseAmount) {
+    if ((isMember || hasCoupon) && purchaseAmount > 100) {
+        return 'Отримаєте знижку';
+    }
+
+    return 'Знижка не доступна';
+}
+
+console.log(`Task #34: ${confirmShopDiscount(false, true, 10)}`);
+
+// Task 35
+// "Напишіть функцію, яка приймає два параметри: password і confirmPassword. Якщо password містить як мінімум одну цифру і збігається з confirmPassword, поверніть "Пароль прийнято", в іншому випадку поверніть "Пароль не відповідає вимогам"."
+
+function checkPassword(password, confirmPassword) {
+    let hasDigit = false;
+
+    for (let index of password) {
+        if (!isNaN(index)) {
+            hasDigit = true;
+            break;
+        }
+    }
+
+    if ((hasDigit && password) === confirmPassword) {
+        return 'Пароль прийнято';
+    }
+
+    return 'Пароль не відповідає вимогам';
+}
+
+console.log(`Task #35: ${checkPassword('1abc', '1abc')}`);
+
+// Task 36
+// "Напишіть функцію, яка приймає три параметри: isOnline (булевий), hasCamera (булевий), і hasMicrophone (булевий). Якщо ви онлайн і маєте камеру або мікрофон, поверніть "Готові до відеоконференції", якщо ви не онлайн або не маєте жодного з них, поверніть "Немає можливості для відеоконференції"."
+
+function confirmReady(isOnline, hasCamera, hasMicrophone) {
+    if (isOnline && (hasCamera || hasMicrophone)) {
+        return 'Готові до відеоконференції';
+    }
+
+    return 'Немає можливості для відеоконференції';
+}
+
+console.log(`Task #36: ${confirmReady(false, true, true)}`);
+
+// Task 37
+// "Напишіть функцію, яка приймає три параметри: currentTime, isWeekend, і isHoliday. Якщо зараз менше 8 ранку і це не вихідний день, і це не свято, поверніть "Скоро час на роботу", в іншому випадку поверніть "Вільний час"."
+
+function confirmFreeTime(currentTime, isWeekend, isHoliday) {
+    if (currentTime < 8 && !isWeekend && !isHoliday) {
+        return 'Скоро час на роботу';
+    }
+
+    return 'Вільний час';
+}
+
+console.log(`Task #37: ${confirmFreeTime(true, false, false)}`);
+
+// Task 38
+// "Напишіть функцію, яка приймає три параметри: temperature, isSnowing, і hasHeater (булевий). Якщо температура нижче 0 і йде сніг, і у вас є обігрівач, поверніть "Тепло та затишно", якщо обігрівача немає, поверніть "Потрібно зігрітися", в іншому випадку поверніть "Погода нормальна"."
+
+function cofirmWarmth(temperature, isSnowing, hasHeater) {
+    if (temperature < 0 && isSnowing && hasHeater) {
+        return 'Тепло та затишно';
+    } else if (temperature < 0 && !hasHeater) {
+        return 'Потрібно зігрітися';
+    } else {
+        return 'Погода нормальна';
+    }
+}
+
+console.log(`Task #38: ${cofirmWarmth(-30, false, true)}`);
+
+// Task 39
+// "Напишіть функцію, яка приймає три параметри: age, hasDriverLicense (булевий), і isInsured (булевий). Якщо ви старше 18 років, маєте водійське посвідчення і страховку, поверніть "Можна керувати автомобілем", в іншому випадку поверніть "Не можна керувати автомобілем"."
+
+function confirmAccessDrive(age, hasDriverLicense, isInsured) {
+    if (age >= 18 && hasDriverLicense && isInsured) {
+        return 'Можна керувати автомобілем';
+    }
+
+    return 'Не можна керувати автомобілем';
+}
+
+console.log(`Task #39: ${confirmAccessDrive(18, true, false)}`);
+
+// Task 40
+// "Напишіть функцію, яка приймає три параметри: currentDay, hasMeeting (булевий), і isHoliday. Якщо сьогодні понеділок, середа або п'ятниця, і у вас є зустріч, і це не свято, поверніть "Є зустріч", в іншому випадку поверніть "Немає зустрічі"."
+
+function confirmMeeting(currentDay, hasMeeting, isHoliday) {
+    let currentDays = ['Monday', 'Wensday', 'Friday'];
+
+    for (let index of currentDays) {
+        if (currentDay === index && hasMeeting && !isHoliday) {
+            return 'Є зустріч';
+        }
+    }
+
+    return 'Немає зустрічі';
+}
+
+console.log(`Task #40: ${confirmMeeting('Tusday', true, false)}`);
+
+// Task 41
+// "Напишіть функцію, яка приймає три параметри: itemPrice, isDiscounted (булевий), і discountAmount. Якщо ціна товару більше 1000, і він знижений на 10% або більше, поверніть "Знижка доступна", в іншому випадку поверніть "Знижка не доступна"."
+
+function confirmDiscountItem(itemPrice, isDiscounted, discountAmount) {
+    let discountNumber = (itemPrice * 10) / 100;
+
+    if (itemPrice > 1000 && isDiscounted && discountAmount >= discountNumber) {
+        return 'Знижка доступна';
+    }
+
+    return 'Знижка не доступна';
+}
+
+console.log(`Task #41: ${confirmDiscountItem(1001, true, 20)}`);
+
+// Task 42
+// "Напишіть функцію, яка приймає один параметр dayOfWeek. Використовуючи switch, поверніть "Понеділок", "Вівторок", "Середа", "Четвер", "П'ятниця", "Субота" або "Неділя" залежно від введеного числа (1 - Понеділок, 2 - Вівторок, і т.д.). Якщо введене число не в діапазоні від 1 до 7, поверніть "Невідомий день"."
+
+function weekDay(dayOfWeek) {
+    switch (dayOfWeek) {
+        case 1:
+            return 'Понеділок';
+            break;
+        case 2:
+            return 'Вівторок';
+            break;
+        case 3:
+            return 'Середа';
+            break;
+        case 4:
+            return 'Четвер';
+            break;
+        case 5:
+            return "П'ятниця";
+            break;
+        case 6:
+            return 'Субота';
+            break;
+        case 7:
+            return 'Неділя';
+            break;
+        default:
+            return 'Невідомий день';
+    }
+}
+
+console.log(`Task #42: ${weekDay(7)}`);
+
+// Task 43
+// "Напишіть функцію, яка приймає один параметр grade. Використовуючи switch, поверніть "Відмінно", "Добре", "Задовільно", "Незадовільно" в залежності від оцінки: "A" - "Відмінно", "B" - "Добре", "C" - "Задовільно", "D" або "F" - "Незадовільно"."
+
+function getDesritionOfGrade(grade) {
+    switch (grade) {
+        case 'A':
+            return 'Відмінно';
+            break;
+        case 'B':
+            return 'Добре';
+            break;
+        case 'C':
+            return 'Задовільно';
+            break;
+        case 'D':
+        case 'F':
+            return 'Незадовільно';
+            break;
+        default:
+            return 'Невідома оцінка';
+    }
+}
+
+console.log(`Task #43: ${getDesritionOfGrade('A')}`);
+
+// Task 44
+// "Напишіть функцію, яка приймає один параметр fruit. Використовуючи switch, поверніть "Цитрус", "Яблуко", "Груша", або "Ягода" в залежності від введеного фрукта. Наприклад, "Лимон", "Апельсин", "Грейпфрут" повинні повернути "Цитрус", "Яблуко" - "Яблуко", "Груша" - "Груша", "Полуниця", "Малина", "Чорниця" - "Ягода"."
+
+function getTypeOfFruit(fruit) {
+    switch (fruit) {
+        case 'Лимон':
+        case 'Апельсин':
+        case 'Грейпфрут':
+            return 'Цитрус';
+            break;
+        case 'Яблуко':
+            return 'Яблуко';
+            break;
+        case 'Груша':
+            return 'Груша';
+            break;
+        case 'Полуниця':
+        case 'Малина':
+        case 'Чорниця':
+            return 'Ягода';
+            break;
+        default:
+            return 'Невідомий тип';
+    }
+}
+
+console.log(`Task #44: ${getTypeOfFruit('Полуниця')}`);
+
+// Task 45
+// "Напишіть функцію, яка приймає один параметр vehicleType. Використовуючи switch, поверніть "Легковий автомобіль", "Вантажівка", "Мотоцикл", або "Інше" в залежності від введеного типу транспортного засобу. Наприклад, "Car" - "Легковий автомобіль", "Truck" - "Вантажівка", "Motorcycle" - "Мотоцикл", і інші випадки - "Інше"."
+
+function getVehicleType(vehicleType) {
+    switch (vehicleType) {
+        case 'Car':
+            return 'Легковий автомобіль';
+            break;
+        case 'Truck':
+            return 'Вантажівка';
+            break;
+        case 'Motorcycle':
+            return 'Мотоцикл';
+            break;
+        default:
+            return 'Інше';
+    }
+}
+
+console.log(`Task #45: ${getVehicleType('Car')}`);
+
+// Task 46
+// "Напишіть функцію, яка приймає один параметр animal. Використовуючи switch, поверніть "Ссавець", "Птах", "Риба", або "Рептилія" в залежності від введеної тварини. Наприклад, "Кішка", "Собака", "Кінь" - "Ссавець", "Голуб", "Орлан", "Горобець" - "Птах", "Лосось", "Тунець", "Тріска" - "Риба", "Ящірка", "Черепаха", "Змія" - "Рептилія"."
+
+function getAnimalType(animal) {
+    switch (animal) {
+        case 'Кішка':
+        case 'Собака':
+        case 'Кінь':
+            return 'Ссавець';
+            break;
+        case 'Голуб':
+        case 'Орлан':
+        case 'Горобець':
+            return 'Птах';
+            break;
+        case 'Лосось':
+        case 'Тунець':
+        case 'Тріска':
+            return 'Риба';
+            break;
+        case 'Ящірка':
+        case 'Черепаха':
+        case 'Змія':
+            return 'Рептилія';
+            break;
+        default:
+            return 'Невідома тварина';
+    }
+}
+
+console.log(`Task #46: ${getAnimalType('Кішка')}`);
+
+// Task 47
+// "Напишіть функцію, яка приймає один параметр weather. Використовуючи switch, поверніть "Сонячно", "Хмарно", "Дощ", або "Сніг" в залежності від введеного типу погоди. Наприклад, "Sunny" - "Сонячно", "Cloudy" - "Хмарно", "Rainy" - "Дощ", "Snowy" - "Сніг"."
+
+function getWeather(weather) {
+    switch (weather) {
+        case 'Sunny':
+            return 'Сонячно';
+            break;
+        case 'Cloudy':
+            return 'Хмарно';
+            break;
+        case 'Rainy':
+            return 'Дощ';
+            break;
+        case 'Snowy':
+            return 'Сніг';
+            break;
+        default:
+            return 'Невідомо';
+    }
+}
+
+console.log(`Task #47: ${getWeather('Sunny')}`);
+
+// Task 48
+// "Напишіть функцію, яка приймає один параметр mood. Використовуючи switch, поверніть "Щасливий", "Сумний", "Злий", або "Здивований" в залежності від введеного настрою. Наприклад, "Happy" - "Щасливий", "Sad" - "Сумний", "Angry" - "Злий", "Surprised" - "Здивований"."
+
+function getMoodType(mood) {
+    switch (mood) {
+        case 'Happy':
+            return 'Щасливий';
+            break;
+        case 'Sad':
+            return 'Сумний';
+            break;
+        case 'Angry':
+            return 'Злий';
+            break;
+        case 'Surprised':
+            return 'Здивований';
+            break;
+        default:
+            return 'Невідомо';
+    }
+}
+
+console.log(`Task #48: ${getMoodType('Happy')}`);
+
+// Task 49
+// "Напишіть функцію, яка приймає один параметр month. Використовуючи switch, поверніть назву сезону ("Весна", "Літо", "Осінь", "Зима") в залежності від місяця. Наприклад, "Березень", "Квітень", "Травень" - "Весна", "Червень", "Липень", "Серпень" - "Літо", "Вересень", "Жовтень", "Листопад" - "Осінь", "Грудень", "Січень", "Лютий" - "Зима"."
+
+function getSeasonType(month) {
+    switch (month) {
+        case 'Березень':
+        case 'Квітень':
+        case 'Травень':
+            return 'Весна';
+            break;
+        case 'Червень':
+        case 'Липень':
+        case 'Серпень':
+            return 'Літо';
+            break;
+        case 'Вересень':
+        case 'Жовтень':
+        case 'Листопад':
+            return 'Осінь';
+            break;
+        case 'Грудень':
+        case 'Січень':
+        case 'Лютий':
+            return 'Зима';
+            break;
+        default:
+            return 'Невідомо';
+    }
+}
+
+console.log(`Task #49: ${getSeasonType('Березень')}`);
+
+// Task 50
+// "Напишіть функцію, яка приймає один параметр color. Використовуючи switch, поверніть "Теплий колір" або "Холодний колір" в залежності від кольору. Наприклад, "Red", "Orange", "Yellow" - "Теплий колір", "Blue", "Green", "Purple" - "Холодний колір"."
+
+function getColorType(color) {
+    switch (color) {
+        case 'Red':
+        case 'Orange':
+        case 'Yellow':
+            return 'Теплий колір';
+            break;
+        case 'Blue':
+        case 'Green':
+        case 'Purple':
+            return 'Холодний колір';
+            break;
+        default:
+            return 'Невідомо';
+    }
+}
+
+console.log(`Task #50: ${getColorType('Red')}`);
+
+// Task 51
+// "Напишіть функцію, яка приймає один параметр continent. Використовуючи switch, поверніть назву континенту або "Невідомий континент" в залежності від введеного значення. Наприклад, "Africa", "Europe", "Asia", "North America", "South America", "Antarctica", "Australia" - відомі континенти, інші випадки - "Невідомий континент"."
+
+function getContinentName(continent) {
+    switch (continent) {
+        case 'Africa':
+            return 'Африка';
+            break;
+        case 'Europe':
+            return 'Європа';
+            break;
+        case 'Asia':
+            return 'Азія';
+            break;
+        case 'Australia':
+            return 'Австралія';
+            break;
+        case 'North America':
+            return 'Північна Америка';
+            break;
+        case 'South America':
+            return 'Південна Америка';
+            break;
+        case 'Antarctica':
+            return 'Антарктика';
+            break;
+        default:
+            return 'Невідомий континент';
+    }
+}
+
+console.log(`Task #51: ${getContinentName('Africa')}`);
