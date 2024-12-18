@@ -15,8 +15,10 @@ for (let i = 1; i <= 10; i++) {
 console.log(' ');
 console.log('Task #2');
 
-for (let i = 2; i <= 20; i = i + 2) {
-    console.log(i);
+for (let i = 1; i <= 20; i++) {
+    if (i % 2 === 0) {
+        console.log(i);
+    }
 }
 
 // Task 3
@@ -27,9 +29,8 @@ console.log('Task #3');
 
 let sum = 0;
 
-for (let i = 0; i <= 100; i++) {
+for (let i = 1; i <= 100; i++) {
     sum += i;
-    // console.log(sum);
 }
 
 console.log(sum);
@@ -40,9 +41,12 @@ console.log(sum);
 console.log(' ');
 console.log('Task #4');
 
-for (let i = 0; i <= 10; i++) {
-    let result = 7 * i;
-    console.log(`7 * ${i} = ${result}`);
+let num = 7;
+let res = 0;
+
+for (let i = 1; i <= 10; i++) {
+    res = num * i;
+    console.log(`${num} * ${i} = ${res}`);
 }
 
 // Task 5
@@ -56,9 +60,8 @@ let result = 1;
 
 for (let i = 1; i <= number; i++) {
     result *= i;
+    console.log(result);
 }
-
-console.log(result);
 
 // Task 6
 // "Напиши цикл, який виведе кожну другу літеру рядочку "Hello world""
@@ -68,8 +71,10 @@ console.log('Task #6');
 
 let string = 'Hello world';
 
-for (let i = 1; i <= string.length; i += 2) {
-    console.log(string[i]);
+for (let i = 0; i < string.length; i++) {
+    if (i % 2 === 1) {
+        console.log(string[i]);
+    }
 }
 
 // Task 7
@@ -78,11 +83,14 @@ for (let i = 1; i <= string.length; i += 2) {
 console.log(' ');
 console.log('Task #7');
 
-let helloString = 'Hello world';
+let newString = 'Hello world';
+let reversSring = '';
 
-for (let i = helloString.length; i >= 0; i--) {
-    console.log(helloString[i]);
+for (let i = newString.length - 1; i >= 0; i--) {
+    reversSring += newString[i];
 }
+
+console.log(reversSring);
 
 // Task 8
 // "Напиши цикл, який виведе кожну літеру рядочку "Hello world" поки не зустріне пробіл."
@@ -90,15 +98,14 @@ for (let i = helloString.length; i >= 0; i--) {
 console.log(' ');
 console.log('Task #8');
 
-let newString = 'Hello world';
-let spaceIndex = newString.indexOf(' ');
+let str = 'Hello world';
+let spaceIndex = str.indexOf(' ');
 
-for (let i = 0; i <= newString.length; i++) {
+for (let i = 0; i <= str.length; i++) {
     if (i === spaceIndex) {
         break;
     }
-
-    console.log(newString[i]);
+    console.log(str[i]);
 }
 
 // Task 9
@@ -107,10 +114,12 @@ for (let i = 0; i <= newString.length; i++) {
 console.log(' ');
 console.log('Task #9');
 
-let scriptSrting = 'JavaScript';
+let js = 'JavaScript';
 
-for (let i = 1; i <= scriptSrting.length; i += 2) {
-    console.log(scriptSrting[i]);
+for (let i = 0; i <= js.length; i++) {
+    if (i % 2 === 1) {
+        console.log(js[i]);
+    }
 }
 
 // Task 10
@@ -120,8 +129,8 @@ console.log(' ');
 console.log('Task #10');
 
 function getReverseString(string) {
-    let reverseString = string.split('').reverse().join('');
-    return reverseString;
+    string = string.split('').reverse().join('');
+    return string;
 }
 
 console.log(getReverseString('script'));
@@ -133,17 +142,17 @@ console.log(' ');
 console.log('Task #11');
 
 function getModifySctring(string) {
-    let modifyString = '';
+    let modString = '';
 
     for (let i = 0; i < string.length; i++) {
         if (i % 2 === 1) {
-            modifyString += string[i].toUpperCase();
+            modString += string[i].toUpperCase();
         } else {
-            modifyString += string[i];
+            modString += string[i];
         }
     }
 
-    return modifyString;
+    return modString;
 }
 
 console.log(getModifySctring('script'));
@@ -155,14 +164,119 @@ console.log(' ');
 console.log('Task #12');
 
 function getString(str1, str2, count) {
-    let result = str1;
-
-    while (count > 0) {
-        result += str2;
-        count--;
+    for (let i = 1; i <= count; i++) {
+        str1 += str2;
     }
 
-    return result;
+    return str1;
 }
 
-console.log(getString('script', '!', 10));
+console.log(getString('work', '?', 5));
+console.log(getString('yes', '!', 5));
+
+//=================== GPT TASKS ===================================
+
+// Task 13
+// "Напишіть цикл, який виведе всі непарні числа від 1 до 100 (включно)."
+
+console.log(' ');
+console.log('Task #13');
+
+for (let i = 1; i <= 100; i++) {
+    if (i % 2 === 0) {
+        console.log(i);
+    }
+}
+
+// Task 14
+// "Напишіть цикл, який обчислює суму всіх чисел від 1 до числа N, яке задається користувачем."
+
+console.log(' ');
+console.log('Task #14');
+
+let userNumber = 5;
+let summ = 0;
+
+for (let i = 0; i <= userNumber; i++) {
+    summ += i;
+    console.log(`${summ - i} + ${i} = ${summ}`);
+}
+
+// Task 15
+// "Напишіть функцію, яка приймає число і перевіряє, чи є воно простим (просте число — це таке число, яке більше 1 і не ділиться на жодне інше число, окрім 1 і самого себе)."
+
+console.log(' ');
+console.log('Task #15');
+
+function isSimpleNumber(number) {
+    for (let i = 2; i < number; i++) {
+        if (number <= 1 && number % i === 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+console.log(isSimpleNumber(4));
+
+// Task 16
+// "Напишіть цикл, який виведе таблицю множення для числа 5 (від 1 до 10)."
+
+console.log(' ');
+console.log('Task #16');
+
+// const userNum = +prompt('Enter a number (1-10)');
+// let userResult = 0;
+
+// for (let i = 1; i <= 10; i++) {
+//     userResult = userNum * i;
+//     console.log(`${userNum} * ${i} = ${userResult}`);
+// }
+
+// Task 17
+// "Напишіть цикл, який переверне масив і виведе його в зворотному порядку."
+
+console.log(' ');
+console.log('Task #17');
+
+let array = [1, 2, 3, 4, 5];
+console.log(array);
+
+for (let i = 0; i < array.length; i++) {
+    array.reverse();
+}
+
+console.log(array);
+
+// Task 18
+// "Напишіть функцію, яка підрахує кількість голосних літер у рядку."
+
+console.log(' ');
+console.log('Task #18');
+
+// let userString = prompt('Enter a sentece');
+
+// let vowels = ['a', 'e', 'i', 'o', 'u'];
+// let vowelsArray = [];
+
+// for (let i = 0; i < userString.length; i++) {
+//     if (vowels.includes(userString[i].toLowerCase())) {
+//         vowelsArray.push(userString[i]);
+//     }
+// }
+
+// const vowelsCount = vowelsArray.length;
+// console.log(vowelsCount);
+
+// Task 19
+// "Напишіть цикл, який виведе всі числа від 1 до 100, які кратні 3 або 5."
+
+console.log(' ');
+console.log('Task #19');
+
+for (let i = 0; i <= 100; i++) {
+    if (i % 3 === 0 || i % 5 === 0) {
+        console.log(i);
+    }
+}
